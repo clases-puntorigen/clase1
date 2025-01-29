@@ -50,7 +50,7 @@ def contar_letra(texto, letra):
     PISTA: Convierte todo a minúsculas con .lower() y usa .count()
 
     """
-    #Aqui pobre de muchas formas, pero la que mas me sirvio fue esta
+    # Aqui intente de varias formas, y que me resulto fue la siguiente:
 
     minusculas = texto.lower() 
     minusculas2 = letra.lower()
