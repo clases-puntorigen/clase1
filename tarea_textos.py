@@ -35,7 +35,7 @@ def crear_saludo(nombre):
     
     PISTA: Usa + o f-strings para juntar textos
     """
-    saludo_creado = f"!Hola {nombre}¡"
+    saludo_creado = f"¡Hola {nombre}!"
     return saludo_creado
 
 def contar_letra(texto, letra):
@@ -52,9 +52,9 @@ def contar_letra(texto, letra):
     """
     # Aqui intente de varias formas, y que me resulto fue la siguiente:
 
-    minusculas = texto.lower() 
-    minusculas2 = letra.lower()
-    contador_texto = minusculas.count("a")
+    texto_minusculas = texto.lower() 
+    letra_minusculas = letra.lower()
+    contador_texto = texto_minusculas.count(letra_minusculas)
     return contador_texto
 
     #minusculas = texto.lower() and letra.lower()
@@ -71,10 +71,7 @@ def es_pregunta(texto):
     
     PISTA: Usa el método .endswith() para revisar el final del texto
     """
-
-    es_una_pregunta = texto.endswith("?")
-    return es_una_pregunta
-
+    return texto.endswith("?")
     
 
 def main():
