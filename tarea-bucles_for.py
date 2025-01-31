@@ -45,7 +45,7 @@ def sumar_numeros(hasta):
     total = 0
     for a in range(1, hasta +1):
         total += a
-        print(f"{a}")
+        #print(f"{a}")
     return total
     
 
@@ -76,16 +76,14 @@ def contar_vocales(palabra):
     print("El nombre tiene la letra o")
     """
 
-    palabra.lower()
+    palabra = palabra.lower()
     vocales = ['a','e','i','o','u']
     contador = 0
     for letra in palabra:
         if letra in vocales:
             contador += 1
     return contador
-    
-    
-        
+
 
 def crear_tabla_multiplicar(numero):
     """
