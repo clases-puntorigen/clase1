@@ -20,7 +20,8 @@ def saludar_usuario():
     
     PISTA: Usa input() para preguntar y guardar la respuesta en una variable
     """
-    pass  # Reemplaza esto con tu código
+    nombre = input("¿Cómo te llamas? ").title()
+    print(f"¡Hola {nombre}! Bienvenida al programa.")
 
 def calcular_edad_en_meses():
     """
@@ -34,8 +35,10 @@ def calcular_edad_en_meses():
     PISTA 2: Usa int() para convertir el texto a número
     PISTA 3: Multiplica la edad por 12 para obtener los meses
     """
-    pass  # Reemplaza esto con tu código
-
+    edad = input("Ingrese su edad: ")
+    meses = int(edad) * 12
+    print(f"Tienes {meses} meses de edad")
+    
 def crear_tarjeta_presentacion():
     """
     TODO: Pide nombre y profesión al usuario, y crea una tarjeta de presentación.
@@ -51,7 +54,13 @@ def crear_tarjeta_presentacion():
     PISTA 1: Usa input() dos veces para pedir los datos
     PISTA 2: Usa print() varias veces para mostrar la tarjeta
     """
-    pass  # Reemplaza esto con tu código
+    nombre = input("¿Cuál es tu nombre?")
+    profesion = input("¿Cuál es tu profesión?")
+    separador = "+------------------------+"
+    print(separador)
+    print(f"| {nombre.center(len(separador)-4)} |")
+    print(f"| {profesion.center(len(separador)-4)} |")
+    print(separador)
 
 def calcular_precio_total():
     """
@@ -67,7 +76,10 @@ def calcular_precio_total():
     PISTA 2: Usa int() para convertir la cantidad a número entero
     PISTA 3: Multiplica precio por cantidad
     """
-    pass  # Reemplaza esto con tu código
+    precio = float(input("¿Cuál es el precio del producto?"))
+    unidades = int(input("¿Cuántas unidades quieres?"))
+    total = precio * unidades
+    print(f"El precio del producto es: {precio}, Y llevara {unidades} unidades, lo cual tiene un valor total de: {total}")
 
 def main():
     print("=== Ejercicio 1: Saludos ===")
