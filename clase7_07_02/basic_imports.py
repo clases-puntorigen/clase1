@@ -18,8 +18,10 @@ Tareas:
 """
 
 # TODO: Importa las funciones requeridas desde calculadora.py
-from calculadora import sumar, restar, multiplicar, division, nombreApp
-from clase7_07_02.solutions.modules.calculadora import sumar, restar, multiplicar, division, nombreApp
+#import relativo
+#from calculadora import sumar, restar, multiplicar, division, nombreApp
+#import absoluto (desde el init)
+from clase7_07_02.calculadora import sumar, restar, multiplicar, division, nombreApp
 from ejercicios.clases import MascotaVirtual
 
 def principal():
