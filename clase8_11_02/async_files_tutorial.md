@@ -63,7 +63,7 @@ async def leer_archivo(ruta):
 ```python
 async def leer_lineas(ruta):
     archivo = await aiofiles.open(ruta, 'r')
-    async for linea in archivo:
+    for linea in archivo:
         print(linea.strip())
     await archivo.close()
 ```
