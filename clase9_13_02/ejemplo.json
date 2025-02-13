@@ -1,0 +1,10 @@
+{
+    "nombre":"Jose",
+    "apellido":"Silva",
+    "edad":2000,
+    "specs": {
+        "altura": -1.70,
+        "pelo": "negro",
+        "peso": 800
+    }
+}
