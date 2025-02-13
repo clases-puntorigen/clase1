@@ -20,12 +20,14 @@ from pathlib import Path
 # - Agregar marca de tiempo al inicio de la línea
 # - Convertir la línea a mayúsculas
 # - Contar el número de palabras
+#    Returns:
+#        tuple: (línea procesada, número de palabras)
 async def procesar_linea(linea: str) -> tuple[str, int]:   
     tiempo =  f"[{datetime.now()}]"
     mayusculas = linea.upper()
     numero_palabras = len(mayusculas.split())
-    return f"{tiempo}, el numero de palabras es: {numero_palabras}"
-    pass
+    procesado = f"{tiempo}, el numero de palabras es: {numero_palabras}"
+    return (procesado, numero_palabras)
 
 # TODO: Implementar función para procesar un archivo completo
 # La función debe:
@@ -45,16 +47,12 @@ async def procesar_archivo(archivo_entrada: Path) -> int:
         salida = await aiofiles.open(archivo_salida, 'w')
 
         async for linea in entrada:
-                linea_procesar = await procesar_linea(linea.strip())
-                await salida.write(linea + '\n')
-                total_palabras += procesar_linea
-        return total_palabras
-        pass
+            linea_procesar, num_palabras = await procesar_linea(linea.strip())
+            await salida.write(linea_procesar + '\n')
+            total_palabras += num_palabras
     finally:
         await entrada.close()
         await salida.close()
-        
-        pass
     
     return total_palabras
 
@@ -64,6 +62,13 @@ async def procesar_archivo(archivo_entrada: Path) -> int:
 # - Procesar todos los archivos en paralelo usando asyncio.gather()
 # - Retornar una lista con el total de palabras por archivo
 async def procesar_archivos(archivos: list[Path]) -> list[int]:
+    """
+    # otra forma más corta de hacer lo mismo
+    tareas = [
+        asyncio.create_task(procesar_archivo(archivo))
+        for archivo in archivos
+    ]
+    """
     tareas = []
     for archivo in archivos:
         tarea = asyncio.create_task(procesar_archivo(archivo))
@@ -71,8 +76,6 @@ async def procesar_archivos(archivos: list[Path]) -> list[int]:
 
     resultados = await asyncio.gather(*tareas)
     return resultados
-
-    pass
 
 async def main():
     # Archivos de ejemplo (serán creados automáticamente)
