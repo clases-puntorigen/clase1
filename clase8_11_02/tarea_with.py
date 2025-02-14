@@ -23,34 +23,35 @@ class TemporizadorContexto:
         self.descripcion = descripcion
     
     def __enter__(self):
-        pass  # Implementar inicio del temporizador
-    
+        self.inicio = time()
+        return self
+        
     def __exit__(self, exc_type, exc_value, traceback):
-        pass  # Implementar fin del temporizador y mostrar tiempo
+        fin = time()
+        duracion = fin - self.inicio
+        print(f"La duracion fue de:{duracion:..2f}segundos")
+
 
 
 # TODO: Implementar el administrador de contexto para archivos temporales
 # Debe crear un archivo temporal y eliminarlo al finalizar
 @contextmanager
 def archivo_temporal(contenido: str = "") -> str:
-    """
-    Crea un archivo temporal con el contenido especificado
-    y lo elimina al salir del contexto
     
-    Args:
-        contenido: Texto a escribir en el archivo
-    
-    Returns:
-        str: Ruta al archivo temporal
+    try:
+        with open ('entrada.txt','r') as archivo:
+            nombre = archivo.read()
+        yield nombre
+    finally:
+        if os.path.exists(nombre):
+            os.remove(nombre)
+
     """
-    pass  # Implementar manejo de archivo temporal
-
-
 # TODO: Implementar el administrador de contexto para logging
 class RegistroContextual:
     """
-    Administrador de contexto que registra eventos con nivel de anidamiento
-    
+   # Administrador de contexto que registra eventos con nivel de anidamiento
+    """
     Ejemplo de uso:
     with RegistroContextual("Tarea Principal"):
         print("Haciendo tarea principal")
@@ -71,11 +72,9 @@ class RegistroContextual:
         self.nombre = nombre
     
     def __enter__(self):
-        pass  # Implementar entrada al contexto
-    
+        pass
     def __exit__(self, exc_type, exc_value, traceback):
-        pass  # Implementar salida del contexto
-
+        pass
 
 def probar_temporizador():
     """Prueba el administrador de contexto TemporizadorContexto"""
@@ -97,7 +96,7 @@ def probar_archivo_temporal():
 
 
 def probar_registro():
-    """Prueba el administrador de contexto RegistroContextual"""
+# Prueba el administrador de contexto RegistroContextual
     print("\n3. Probando RegistroContextual:")
     with RegistroContextual("Proceso Principal"):
         print("Iniciando proceso principal")

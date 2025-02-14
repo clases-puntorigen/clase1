@@ -13,9 +13,54 @@ Crea un sistema de clases para manejar diferentes formas geométricas:
 3. Cada clase debe implementar correctamente los métodos 'area' y 'perimetro'
 4. Agrega un método 'descripcion' que retorne una descripción de la forma
 """
+class Forma:
+   def __init__(self,nombre):
+      self.nombre = nombre
+   def area(self):
+      pass
+   def perimetro(self):
+      pass
 
-# TODO: Implementa las clases aquí
+   def descripcion(self):
+      return f"forma geométrica llamada {self.nombre}"
+   
+class Rectangulo(Forma):
+   def __init__(self,nombre, altura,ancho):
+      super().__init__(nombre)
+      self.altura = altura
+      self.ancho = ancho
+   
+   def area(self):
+      return self.altura * self.ancho
 
+   def perimetro(self):
+      return (self.altura + self.ancho) * 2
+
+class Circulo(Forma):
+   def __init__(self, nombre, radio):
+      super().__init__(nombre)
+      self.radio = radio
+
+   def area(self):
+      return 3.14159 * self.radio ** 2
+
+   def perimetro(self):
+      return 2 * 3.14159 * self.radio
+
+class Triangulo(Forma):
+   def __init__(self,nombre,base,altura,lado_a,lado_b,lado_c):
+      super().__init__(nombre)
+      self.base = base
+      self.altura = altura
+      self.lado_a = lado_a
+      self.lado_b = lado_b
+      self.lado_c = lado_c
+   
+   def area(self):
+      return (self.base * self.altura) / 2
+
+   def perimetro(self):
+      return self.lado_a + self.lado_b + self.lado_c
 
 """
 Ejercicio 2: Sistema de Empleados
@@ -29,7 +74,49 @@ Crea un sistema de gestión de empleados con las siguientes características:
    - Atributos específicos según su rol
 """
 
-# TODO: Implementa las clases aquí
+class Empleado:
+   def __init__(self,nombre,id,salario_base):
+      self.nombre = nombre
+      self.id = id
+      self.salario_base = salario_base
+
+   def calcular_pago(self):
+      return self.salario_base
+
+class Gerente(Empleado):
+   def __init__(self, nombre, id, salario_base, bono):
+      super().__init__(nombre,id,salario_base)
+      self.bono = bono
+
+   def calcular_pago(self):
+      return self.salario_base + self.bono
+   
+   def descripcion(self):
+      return f"Empleado: {self.nombre}, ID: {self.id}"
+
+class Vendedor(Empleado):
+   def __init__(self, nombre, id, salario_base, comision):
+      super().__init__(nombre,id,salario_base)
+      self.comision = comision
+
+   def calcular_pago(self):
+      return self.salario_base + self.comision
+   
+   def descripcion(self):
+      return f"Vendedor: {self.nombre}, comision: {self.comision}"
+   
+class Desarrollador(Empleado):
+   def __init__(self, nombre, id, salario_base,horas_extra):
+      super().__init__(nombre, id, salario_base)
+      self.horas_extra = horas_extra
+
+   def calcular_pago(self):
+      return self.salario_base + self.horas_extra
+
+   def descripcion(self):
+      return f"Desarrollador: {self.nombre}, Horas extra: {self.horas_extra}"  
+
+
 
 
 """
