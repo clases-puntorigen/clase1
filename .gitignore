@@ -1,2 +1,5 @@
 registro*.txt
 __pycache__
+venv/
+env/
+.env/

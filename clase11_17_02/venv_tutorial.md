@@ -26,26 +26,26 @@ Un entorno virtual es un espacio aislado donde puedes instalar y gestionar depen
 ### Crear un Nuevo Entorno Virtual
 
 ```bash
-# Crear un entorno virtual
-python -m venv mi_proyecto
+# Crear un entorno virtual (recomiendo usar venv como subcarpeta)
+python -m venv subcarpeta
 
 # En sistemas Unix (Linux/macOS)
-python3 -m venv mi_proyecto
+python3 -m venv subcarpeta
 ```
 
 ### Activar el Entorno
 
 ```bash
 # En Windows
-mi_proyecto\Scripts\activate
+subcarpeta\Scripts\activate
 
 # En Unix (Linux/macOS)
-source mi_proyecto/bin/activate
+source subcarpeta/bin/activate
 ```
 
 Cuando el entorno está activado, verás el nombre del entorno en tu prompt:
 ```bash
-(mi_proyecto) $
+(subcarpeta) $
 ```
 
 ### Desactivar el Entorno
@@ -91,7 +91,7 @@ pip freeze > requirements.txt
 2. **Estructura de Proyecto Recomendada**
    ```
    mi_proyecto/
-   ├── venv/               # Entorno virtual
+   ├── venv/               # Entorno virtual (o subcarpeta)
    ├── src/                # Código fuente
    ├── tests/              # Pruebas
    ├── requirements.txt    # Dependencias
@@ -100,7 +100,7 @@ pip freeze > requirements.txt
 
 3. **Archivo .gitignore**
    ```
-   # Ignorar el directorio del entorno virtual
+   # Ignorar el directorio del entorno virtual (o nombre subcarpeta)
    venv/
    env/
    .env/
