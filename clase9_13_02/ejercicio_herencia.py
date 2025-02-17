@@ -117,8 +117,6 @@ class Desarrollador(Empleado):
       return f"Desarrollador: {self.nombre}, Horas extra: {self.horas_extra}"  
 
 
-
-
 """
 Ejercicio 3: Sistema de Vehículos
 
